@@ -12,7 +12,7 @@ export default class Search {
         const baseURL = 'https://api.edamam.com'
         try {
             const res = await axios(`${baseURL}/search?q=${this.query}&app_id=${appID}&app_key=${appKey}`);
-            this.result = res.data.hits[0].recipe;
+            this.result = res.data.hits;
             // console.log(this.result);
         } catch(error) {
             alert(error);
