@@ -9,11 +9,13 @@ export default class Search {
     }
 
     async getResults(query) {
-        const baseURL = 'https://api.edamam.com'
+        const baseURL = 'https://api.edamam.com';
+        // Default is only 10 indexed items, this will esnure use of our pagination feature
+        const lastIndex = 30;
         try {
-            const res = await axios(`${baseURL}/search?q=${this.query}&app_id=${appID}&app_key=${appKey}`);
+            const res = await axios(`${baseURL}/search?q=${this.query}&to=${lastIndex}&app_id=${appID}&app_key=${appKey}`);
             this.result = res.data.hits;
-            // console.log(this.result);
+            console.log(res);
         } catch(error) {
             alert(error);
         }
