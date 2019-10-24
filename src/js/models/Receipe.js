@@ -31,4 +31,23 @@ export default class Recipe {
     calcServings() {
         this.servings = 4;
     }
+
+    parseIngredients() {
+        
+        const newIngredients = this.ingredients.map(el => {
+            // 1) Uniform units
+            let ingredient = {
+                quantity: el.quantity,
+                measure: (el.measure != null) ? el.measure : 'n/a',
+                food: (el.food != null) ? el.food.toLowerCase() : 'n/a'
+
+            }
+
+            // Remove parentheses
+
+            // Parse ingredients into count, unit and ingredient
+            return ingredient;
+        });
+        this.ingredients = newIngredients;
+    }
 }
