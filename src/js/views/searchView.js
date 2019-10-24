@@ -26,9 +26,14 @@ const limitRecipeTitle = (title, limit = 17) => {
 } 
 
 const renderRecipe = recipe => {
+
+    const uri = recipe.recipe.uri;
+    const idArray = uri.split('#');
+    const id = idArray[1];
+
     const markup = `
         <li>
-            <a class="results__link" href="${recipe.recipe.shareAs}">
+            <a class="results__link" href="#${id}">
                 <figure class="results__fig">
                     <img src="${recipe.recipe.image}" alt="${recipe.recipe.label}">
                 </figure>

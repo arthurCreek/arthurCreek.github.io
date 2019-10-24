@@ -14,6 +14,7 @@ export default class Search {
         const lastIndex = 30;
         try {
             const res = await axios(`${baseURL}/search?q=${this.query}&to=${lastIndex}&app_id=${appID}&app_key=${appKey}`);
+            
             this.result = res.data.hits;
             console.log(res);
         } catch(error) {
