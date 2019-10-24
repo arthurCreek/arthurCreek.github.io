@@ -1,6 +1,7 @@
 // Global app controller
 import Search from './models/Search';
 import Recipe from './models/Receipe';
+import List from './models/List';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import { elements, renderLoader, clearLoader } from './views/base';
@@ -80,7 +81,6 @@ const controlRecipe = async () => {
 
         // Create new recipe object
         state.recipe = new Recipe(id.replace('#', ""));
-        console.log(state.recipe);
 
         try {
             // Get recipe data
@@ -121,3 +121,5 @@ elements.recipe.addEventListener('click', e => {
         recipeView.updateServingsIngredients(state.recipe);
     }
 });
+
+window.l = new List();
